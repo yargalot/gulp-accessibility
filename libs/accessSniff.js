@@ -15,16 +15,7 @@ const PLUGIN_NAME = 'gulp-accessibility';
 // Plugin level function(dealing with files)
 function gulpAccessibility(options) {
 
-  var gulpOptions = options ? options : {
-    ignore: [],
-    verbose: true,
-    force: false,
-    domElement: true,
-    reportType: null,
-    reportLocation : 'reports',
-    accessibilityrc: false,
-    accessibilityLevel: 'WCAG2A',
-  };
+  var gulpOptions = options ? options : {};
 
   // Creating a stream through which each file will pass
   return through.obj(function(file, enc, cb) {
