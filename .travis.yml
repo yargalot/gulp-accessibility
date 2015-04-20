@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '0.11'
+- '0.10'
+deploy:
+  provider: npm
+  email: steven.jmiller@gmail.com
+  api_key:
+    secure: UuJshhWRu9F/w70AmbmbKffYfcgZ3XjEGwqe5R5AIqQUHb4PSwKGcDRZ5nh1NHEhgnAVL8gnpJQy1QtlicIdBiCHu3Wcul8mfikJkwa0pd/eTUQHRiP3xSXt11AN7A+JSoqisWCARNxb0VMEvCichsYfdACN8bTIgHeHhu7i5Ng=
+  on:
+    tags: true
+    repo: yargalot/gulp-accessibility
