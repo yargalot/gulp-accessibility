@@ -1,4 +1,6 @@
-# gulp-accessibility
+# Gulp Accessibility
+[![Build Status](https://travis-ci.org/yargalot/gulp-accessibility.svg?branch=master)](https://travis-ci.org/yargalot/gulp-accessibility)
+
 Uses [AccessSniff](https://github.com/yargalot/AccessSniff) and [HTML Codesniffer](http://github.com/squizlabs/HTML_CodeSniffer) to grade your sites accessibility using different levels of the WCAG guidelines
 
 ![Gulp Accessibility example](/img/example.png)
