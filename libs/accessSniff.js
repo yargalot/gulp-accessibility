@@ -30,7 +30,7 @@ function gulpAccessibility(options) {
   return through.obj(function(file, enc, cb) {
 
     var files = [];
-    files.push(file);
+    files.push(file.path);
 
     if (file.isNull()) {
       // return empty file
