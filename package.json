@@ -20,9 +20,12 @@
     "gulpplugin"
   ],
   "devDependencies": {
+    "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.10.0",
-    "jshint-stylish": "^1.0.1"
+    "gulp-nodeunit": "0.0.5",
+    "jshint-stylish": "^1.0.1",
+    "run-sequence": "^1.0.2"
   },
   "dependencies": {
     "access-sniff": "^1.0.0",

@@ -1,7 +1,3 @@
-'use strict';
-
-var grunt = require('grunt');
-
 /*
   ======== A Handy Little Nodeunit Reference ========
   https://github.com/caolan/nodeunit
@@ -22,6 +18,8 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
+var fs = require('fs');
+
 exports.accessibilityTests = {
   setUp: function(done) {
     // setup here if necessary
@@ -34,16 +32,16 @@ exports.accessibilityTests = {
 
     test.expect(2);
 
-    actual = grunt.file.read('reports/txt/test.txt');
-    expected = grunt.file.read('test/expected/txt/test.txt');
+    actual = fs.readFileSync('reports/txt/test.txt', 'utf8');
+    expected = fs.readFileSync('test/expected/txt/test.txt', 'utf8');
     test.equal(actual, expected, 'Should produce a default report without DOM element for a test file');
 
-    actual = grunt.file.read('reports/json/test.json');
-    expected = grunt.file.read('test/expected/json/test.json');
+    actual = fs.readFileSync('reports/json/test.json', 'utf8');
+    expected = fs.readFileSync('test/expected/json/test.json', 'utf8');
     test.equal(actual, expected, 'Should produce a default report without DOM element for a test file');
 
-    // actual = grunt.file.read('reports/csv/test.csv');
-    // expected = grunt.file.read('test/expected/csv/test.csv');
+    // actual = fs.readFileSync('reports/csv/test.csv');
+    // expected = fs.readFileSync('test/expected/csv/test.csv');
     // test.equal(actual, expected, 'Should produce a default report without DOM element for a test file');
 
     test.done();
