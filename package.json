@@ -1,0 +1,25 @@
+{
+  "name": "gulp-accessibility",
+  "version": "1.0.0",
+  "description": "Gulp plugin for AccessSniff",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yargalot/gulp-accessibility.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yargalot/gulp-accessibility/issues"
+  },
+  "homepage": "https://github.com/yargalot/gulp-accessibility",
+  "devDependencies": {
+    "gulp": "^3.8.11"
+  },
+  "dependencies": {
+    "access-sniff": "^0.2.1"
+  }
+}
