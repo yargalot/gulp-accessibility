@@ -22,6 +22,8 @@
     "jshint-stylish": "^1.0.1"
   },
   "dependencies": {
-    "access-sniff": "^0.2.1"
+    "access-sniff": "^0.2.1",
+    "gulp-util": "^3.0.4",
+    "through2": "^0.6.5"
   }
 }

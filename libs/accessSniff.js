@@ -26,10 +26,11 @@ function gulpAccessibility(options) {
     accessibilityLevel: 'WCAG2A',
   };
 
-  var emailBuilder = new EmailBuilderCore(options);
-
   // Creating a stream through which each file will pass
   return through.obj(function(file, enc, cb) {
+
+    var files = [];
+    files.push(file);
 
     if (file.isNull()) {
       // return empty file
@@ -37,11 +38,11 @@ function gulpAccessibility(options) {
     }
 
     if (file.isStream()) {
-      throw new PluginError(PLUGIN_NAME, 'Cannot read strams');
+      throw new PluginError(PLUGIN_NAME, 'Cannot read streams');
     }
 
     if (file.isBuffer()) {
-      accessSniff.start(file.path, options, cb);
+      accessSniff.start(files, options, cb);
     }
 
   });
