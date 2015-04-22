@@ -1,7 +1,7 @@
 {
   "name": "gulp-accessibility",
-  "version": "1.0.1",
-  "description": "Gulp plugin for AccessSniff",
+  "version": "1.0.2",
+  "description": "Grade your sites accessibility and generate a report from different WCAG levels",
   "main": "index.js",
   "scripts": {
     "test": "gulp test"
@@ -17,7 +17,12 @@
   },
   "homepage": "https://github.com/yargalot/gulp-accessibility",
   "keywords": [
-    "gulpplugin"
+    "gulpplugin",
+    "accessibility",
+    "a11y",
+    "analysis",
+    "report",
+    "WCAG"
   ],
   "devDependencies": {
     "del": "^1.1.1",
@@ -28,7 +33,7 @@
     "run-sequence": "^1.0.2"
   },
   "dependencies": {
-    "access-sniff": "^1.0.0",
+    "access-sniff": "^1.0.1",
     "gulp-util": "^3.0.4",
     "through2": "^0.6.5"
   }
