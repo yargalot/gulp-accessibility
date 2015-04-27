@@ -33,7 +33,14 @@ function gulpAccessibility(options) {
     }
 
     if (file.isBuffer()) {
-      accessSniff.start(files, options, cb);
+      accessSniff.start(files, options, function(messageLog, err) {
+
+        if (options.force) {
+          err = 0;
+        }
+
+        return cb(null, messageLog);
+      });
     }
 
   });
