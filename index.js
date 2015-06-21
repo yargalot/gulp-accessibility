@@ -33,7 +33,7 @@ function gulpAccessibility(options) {
     }
 
     if (file.isBuffer()) {
-      accessSniff.start(files, options, function(messageLog, err) {
+      accessSniff.start(files, gulpOptions, function(messageLog, err) {
 
         if (options.force) {
           err = 0;
