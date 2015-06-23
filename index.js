@@ -17,6 +17,17 @@ function gulpAccessibility(options) {
 
   var gulpOptions = options ? options : {};
 
+  if (gulpOptions.urls) {
+    return accessSniff.start(gulpOptions.urls, gulpOptions, function(messageLog, err) {
+
+      if (options.force) {
+        err = 0;
+      }
+
+      return messageLog;
+    });
+  }
+
   // Creating a stream through which each file will pass
   return through.obj(function(file, enc, cb) {
 
@@ -31,6 +42,8 @@ function gulpAccessibility(options) {
     if (file.isStream()) {
       throw new PluginError(PLUGIN_NAME, 'Cannot read streams');
     }
+
+    console.log(files);
 
     if (file.isBuffer()) {
       accessSniff.start(files, gulpOptions, function(messageLog, err) {

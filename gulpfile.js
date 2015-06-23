@@ -47,6 +47,15 @@ gulp.task('accessSniff-json', function() {
     }));
 });
 
+gulp.task('accessSniff-url', function(cb) {
+  return access({
+    urls: ['http://statamic.com/'],
+    force: true,
+    reportType: 'json',
+    reportLocation: 'reports/json',
+  });
+});
+
 gulp.task('test', function(callback) {
   runSequence('clean', 'lint', 'accessSniff-txt', 'accessSniff-json', 'nodeunit', callback);
 });
