@@ -4,7 +4,7 @@ var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var nodeunit = require('gulp-nodeunit');
 var runSequence = require('run-sequence');
-var access = require('./libs/accessSniff.js');
+var access = require('./index.js');
 
 gulp.task('clean', function (cb) {
   return del([
