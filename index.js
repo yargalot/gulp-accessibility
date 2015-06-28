@@ -20,7 +20,7 @@ function gulpAccessibility(options) {
   if (gulpOptions.urls) {
     return accessSniff.start(gulpOptions.urls, gulpOptions, function(messageLog, err) {
 
-      if (options.force) {
+      if (gulpOptions.force) {
         err = 0;
       }
 
@@ -48,7 +48,7 @@ function gulpAccessibility(options) {
     if (file.isBuffer()) {
       accessSniff.start(files, gulpOptions, function(messageLog, err) {
 
-        if (options.force) {
+        if (gulpOptions.force) {
           err = 0;
         }
 
