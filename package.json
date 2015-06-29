@@ -1,6 +1,6 @@
 {
   "name": "gulp-accessibility",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Grade your sites accessibility and generate a report from different WCAG levels",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/yargalot/gulp-accessibility.git"
   },
-  "author": "",
+  "author": "Steven John Miller (http://www.stevenjohnmiller.com/)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/yargalot/gulp-accessibility/issues"
