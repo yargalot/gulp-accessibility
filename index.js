@@ -52,7 +52,12 @@ function gulpAccessibility(options) {
           err = 0;
         }
 
-        return cb(null, messageLog);
+        var error = null;
+        if (err > 0) {
+          error = new Error('at least ' + err + ' errors found when check accessibility')
+        }
+
+        return cb(error, messageLog);
       });
     }
 
