@@ -3,39 +3,23 @@
 // ------------------------
 
 // through2 is a thin wrapper around node transform streams
-var gutil = require('gulp-util');
-var through = require('through2');
-var accessSniff = require('access-sniff');
+const _ = require('lodash');
+const gutil = require('gulp-util');
+const through = require('through2');
+const accessSniff = require('access-sniff');
 
-var PluginError = gutil.PluginError;
+const PluginError = gutil.PluginError;
 
 // Consts
 const PLUGIN_NAME = 'gulp-accessibility';
 
-// Plugin level function(dealing with files)
 function gulpAccessibility(options) {
-
-  var gulpOptions = options ? options : {};
-
-  if (gulpOptions.urls) {
-    return accessSniff.start(gulpOptions.urls, gulpOptions, function(messageLog, err) {
-
-      if (gulpOptions.force) {
-        err = 0;
-      }
-
-      return messageLog;
-    });
-  }
+  const gulpOptions = options ? options : {};
 
   // Creating a stream through which each file will pass
-  return through.obj(function(file, enc, cb) {
-
-    var files = [];
-    files.push(file.path);
+  return through.obj(function(file, enc, callback) {
 
     if (file.isNull()) {
-      // return empty file
       cb(null, file);
     }
 
@@ -43,22 +27,36 @@ function gulpAccessibility(options) {
       throw new PluginError(PLUGIN_NAME, 'Cannot read streams');
     }
 
-    console.log(files);
-
     if (file.isBuffer()) {
-      accessSniff.start(files, gulpOptions, function(messageLog, err) {
+      return accessSniff
+        .default(file.path, gulpOptions)
+        .then(function(response) {
 
-        if (gulpOptions.force) {
-          err = 0;
-        }
+          var err = 0;
 
-        var error = null;
-        if (err > 0) {
-          error = new Error('at least ' + err + ' errors found when check accessibility')
-        }
+          _.each(response, function(data) {
+            data.forEach(function(data) {
+              if (data.heading === 'ERROR') {
+                err ++;
+              }
+            })
+          });
 
-        return cb(error, messageLog);
-      });
+          if (gulpOptions.force) {
+            err = 0;
+          }
+
+          var error = null;
+
+          if (err > 0) {
+            error = new Error('at least ' + err + ' errors found when check accessibility');
+          }
+
+          file.contents = new Buffer(JSON.stringify(response));
+
+          return callback(error, file);
+
+        });
     }
 
   });

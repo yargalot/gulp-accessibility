@@ -4,9 +4,10 @@ var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var nodeunit = require('gulp-nodeunit');
 var runSequence = require('run-sequence');
+var accessSniff = require('access-sniff');
 var access = require('./index.js');
 
-gulp.task('clean', function (cb) {
+gulp.task('clean', function(cb) {
   return del([
     './reports'
   ], cb);
@@ -22,38 +23,37 @@ gulp.task('lint', function() {
 gulp.task('nodeunit', function() {
   return gulp.src('./test/*_test.js')
     .pipe(nodeunit({
-        reporter: 'junit',
-        reporterOptions: {
-            output: 'reports'
-        }
+      reporter: 'junit',
+      reporterOptions: {
+        output: 'reports'
+      }
     }));
 });
 
 gulp.task('accessSniff-txt', function() {
   return gulp.src('./example/**/*.html')
     .pipe(access({
-      force: true,
-      reportType: 'txt',
-      reportLocation: 'reports/txt',
-    }));
+      force: true
+    }))
+    .pipe(gulp.dest('dist'));
+
 });
 
 gulp.task('accessSniff-json', function() {
   return gulp.src('./example/**/*.html')
     .pipe(access({
-      force: true,
-      reportType: 'json',
-      reportLocation: 'reports/json',
-    }));
+      force: true
+    }))
+    .pipe(gulp.dest('dist/json'));
 });
 
+// TODO: Fix urls
 gulp.task('accessSniff-url', function(cb) {
-  return access({
-    urls: ['http://statamic.com/'],
-    force: true,
-    reportType: 'json',
-    reportLocation: 'reports/json',
-  });
+  return gulp.src('http://statamic.com/')
+    .pipe(access({
+      force: true
+    }))
+    .pipe(gulp.dest('dist/web'));
 });
 
 gulp.task('test', function(callback) {

@@ -33,8 +33,9 @@
     "run-sequence": "^1.0.2"
   },
   "dependencies": {
-    "access-sniff": "^1.1.2",
+    "access-sniff": "^2.1.1",
     "gulp-util": "^3.0.4",
+    "lodash": "^4.3.0",
     "through2": "^0.6.5"
   }
 }
