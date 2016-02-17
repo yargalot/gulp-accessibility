@@ -26,14 +26,16 @@
   ],
   "devDependencies": {
     "del": "^1.1.1",
+    "eslint": "^2.1.0",
     "gulp": "^3.8.11",
     "gulp-jshint": "^1.10.0",
     "gulp-nodeunit": "0.0.5",
+    "gulp-rename": "^1.2.2",
     "jshint-stylish": "^1.0.1",
     "run-sequence": "^1.0.2"
   },
   "dependencies": {
-    "access-sniff": "^2.1.1",
+    "access-sniff": "^2.2.1",
     "gulp-util": "^3.0.4",
     "lodash": "^4.3.0",
     "through2": "^0.6.5"

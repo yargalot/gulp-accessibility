@@ -34,11 +34,11 @@ exports.accessibilityTests = {
 
     actual = fs.readFileSync('reports/txt/test.txt', 'utf8');
     expected = fs.readFileSync('test/expected/txt/test.txt', 'utf8');
-    test.equal(actual, expected, 'Should produce a default report without DOM element for a test file');
+    test.equal(actual, expected, 'Should produce a TXT report without DOM element for a test file');
 
     actual = fs.readFileSync('reports/json/test.json', 'utf8');
     expected = fs.readFileSync('test/expected/json/test.json', 'utf8');
-    test.equal(actual, expected, 'Should produce a default report without DOM element for a test file');
+    test.equal(actual, expected, 'Should produce a JSON report without DOM element for a test file');
 
     // actual = fs.readFileSync('reports/csv/test.csv');
     // expected = fs.readFileSync('test/expected/csv/test.csv');

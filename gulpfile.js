@@ -1,5 +1,6 @@
 var del = require('del');
 var gulp   = require('gulp');
+var rename = require('gulp-rename');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var nodeunit = require('gulp-nodeunit');
@@ -35,7 +36,11 @@ gulp.task('accessSniff-txt', function() {
     .pipe(access({
       force: true
     }))
-    .pipe(gulp.dest('dist'));
+    .pipe(access.report({reportType: 'txt'}))
+    .pipe(rename({
+      extname: '.txt'
+    }))
+    .pipe(gulp.dest('reports/txt'));
 
 });
 
@@ -44,7 +49,10 @@ gulp.task('accessSniff-json', function() {
     .pipe(access({
       force: true
     }))
-    .pipe(gulp.dest('dist/json'));
+    .pipe(rename({
+      extname: '.json'
+    }))
+    .pipe(gulp.dest('reports/json'));
 });
 
 // TODO: Fix urls
@@ -53,7 +61,7 @@ gulp.task('accessSniff-url', function(cb) {
     .pipe(access({
       force: true
     }))
-    .pipe(gulp.dest('dist/web'));
+    .pipe(gulp.dest('reports/web'));
 });
 
 gulp.task('test', function(callback) {
