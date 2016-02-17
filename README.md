@@ -20,12 +20,25 @@ Place this in your gulp file.
 ```javascript
 gulp.task('test', function() {
   return gulp.src('./example/**/*.html')
-    .pipe(access());
+    .pipe(access({
+      force: true
+    }))
+    .pipe(access.report({reportType: 'txt'}))
+    .pipe(rename({
+      extname: '.txt'
+    }))
+    .pipe(gulp.dest('reports/txt'));
 });
+
 ```
 
 ## Report Generation
-You can link to the files you wish to lint using the gulp api. The result will be the results file.
+You can link to the files you wish to lint using the gulp api
+
+You'll need to add the below to convert into other formats
+```
+.pipe(access.report({reportType: 'txt'}))
+```
 
 ## Options
 View [AccessSniff](https://github.com/yargalot/AccessSniff) options for all available options.  
