@@ -23,6 +23,7 @@ gulp.task('test', function() {
     .pipe(access({
       force: true
     }))
+    .on('error', console.log)
     .pipe(access.report({reportType: 'txt'}))
     .pipe(rename({
       extname: '.txt'

@@ -49,6 +49,7 @@ gulp.task('accessSniff-json', function() {
     .pipe(access({
       force: true
     }))
+    .on('error', console.log)
     .pipe(rename({
       extname: '.json'
     }))

@@ -32,31 +32,14 @@ var accessSniffPlugin = function(options) {
       return accessSniff
         .default(file.path, gulpOptions)
         .then(function(response) {
-
-          var err = 0;
-
-          _.each(response, function(data) {
-            data.forEach(function(data) {
-              if (data.heading === 'ERROR') {
-                err ++;
-              }
-            })
-          });
-
-          if (gulpOptions.force) {
-            err = 0;
-          }
-
-          var error = null;
-
-          if (err > 0) {
-            error = new Error('at least ' + err + ' errors found when check accessibility');
-          }
-
           file.contents = new Buffer(JSON.stringify(response));
 
-          return callback(error, file);
+          return callback(null, file);
+        })
+        .catch(function(error) {
+          var error = new Error(error);
 
+          return callback(error, file);
         });
     }
 
