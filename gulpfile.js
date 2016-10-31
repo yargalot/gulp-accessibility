@@ -58,15 +58,6 @@ gulp.task('accessSniff-json', function() {
     .pipe(gulp.dest('reports/json'));
 });
 
-// TODO: Fix urls
-gulp.task('accessSniff-url', function(cb) {
-  return gulp.src('http://statamic.com/')
-    .pipe(access({
-      force: true
-    }))
-    .pipe(gulp.dest('reports/web'));
-});
-
 gulp.task('test', function(callback) {
   runSequence('clean', 'lint', 'accessSniff-txt', 'accessSniff-json', 'nodeunit', callback);
 });
