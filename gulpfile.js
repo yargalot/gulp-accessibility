@@ -34,7 +34,8 @@ gulp.task('nodeunit', function() {
 gulp.task('accessSniff-txt', function() {
   return gulp.src('./example/**/*.html')
     .pipe(access({
-      force: true
+      force: true,
+      verbose: false
     }))
     .pipe(access.report({reportType: 'txt'}))
     .pipe(rename({
@@ -47,7 +48,8 @@ gulp.task('accessSniff-txt', function() {
 gulp.task('accessSniff-json', function() {
   return gulp.src('./example/**/*.html')
     .pipe(access({
-      force: true
+      force: true,
+      verbose: false
     }))
     .on('error', console.log)
     .pipe(rename({
