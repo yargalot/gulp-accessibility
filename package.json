@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "access-sniff": "^2.4.7",
-    "gulp-util": "^3.0.4",
+    "gulp-util": "^3.0.7",
     "lodash": "^4.3.0",
     "through2": "^0.6.5"
   }
