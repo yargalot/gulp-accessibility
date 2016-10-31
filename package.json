@@ -28,7 +28,7 @@
   "devDependencies": {
     "del": "^1.1.1",
     "eslint": "^2.1.0",
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.1",
     "gulp-jshint": "^2.0.0",
     "gulp-nodeunit": "0.0.5",
     "gulp-rename": "^1.2.2",
@@ -37,7 +37,7 @@
     "run-sequence": "^1.2.2"
   },
   "dependencies": {
-    "access-sniff": "^2.3.0",
+    "access-sniff": "^2.4.7",
     "gulp-util": "^3.0.4",
     "lodash": "^4.3.0",
     "through2": "^0.6.5"
