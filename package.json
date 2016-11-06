@@ -1,6 +1,6 @@
 {
   "name": "gulp-accessibility",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Grade your sites accessibility and generate a report from different WCAG levels",
   "main": "index.js",
   "engines": {
