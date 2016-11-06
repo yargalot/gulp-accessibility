@@ -3,6 +3,9 @@
   "version": "3.0.0",
   "description": "Grade your sites accessibility and generate a report from different WCAG levels",
   "main": "index.js",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "scripts": {
     "test": "gulp test",
     "prepublish": "npm test"
