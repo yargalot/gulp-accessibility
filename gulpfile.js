@@ -58,6 +58,19 @@ gulp.task('accessSniff-json', function() {
     .pipe(gulp.dest('reports/json'));
 });
 
+gulp.task('accessSniff-error', function() {
+  return gulp.src('./errors/**/*.html')
+    .pipe(access({
+      force: true,
+      verbose: false
+    }))
+    .on('error', console.log)
+    .pipe(rename({
+      extname: '.json'
+    }))
+    .pipe(gulp.dest('reports/json'));
+});
+
 gulp.task('test', function(callback) {
-  runSequence('clean', 'lint', 'accessSniff-txt', 'accessSniff-json', 'nodeunit', callback);
+  runSequence('clean', 'lint', 'accessSniff-txt', 'accessSniff-json', 'accessSniff-error', 'nodeunit', callback);
 });

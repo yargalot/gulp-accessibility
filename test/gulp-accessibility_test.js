@@ -30,7 +30,7 @@ exports.accessibilityTests = {
     var actual;
     var expected;
 
-    test.expect(2);
+    test.expect(3);
 
     actual = fs.existsSync('reports/txt/test.txt');
     expected = fs.existsSync('test/expected/txt/test.txt');
@@ -39,6 +39,10 @@ exports.accessibilityTests = {
     actual = fs.existsSync('reports/json/test.json');
     expected = fs.existsSync('test/expected/json/test.json');
     test.equal(actual, expected, 'Should produce a JSON report without DOM element for a test file');
+
+    actual = fs.existsSync('reports/json/no-alt.json');
+    expected = fs.existsSync('test/expected/json/no-alt.json');
+    test.equal(actual, expected, 'Should produce a JSON report if an error is detected in a test file');
 
     test.done();
   }
