@@ -1,6 +1,6 @@
 {
   "name": "gulp-accessibility",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Grade your sites accessibility and generate a report from different WCAG levels",
   "main": "index.js",
   "engines": {
@@ -40,7 +40,7 @@
     "run-sequence": "^1.2.2"
   },
   "dependencies": {
-    "access-sniff": "^3.0.0",
+    "access-sniff": "^3.2.0",
     "gulp-util": "^3.0.7",
     "lodash": "^4.3.0",
     "through2": "^0.6.5"
