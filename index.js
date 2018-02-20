@@ -36,8 +36,10 @@ var accessSniffPlugin = function(options) {
 
           return callback(null, file);
         })
-        .catch(function(error) {
-          var error = new Error(error);
+        .catch(function(result) {
+          var error = new Error(result.errorMessage);
+
+          file.contents = new Buffer(JSON.stringify(result.reportLogs));
 
           return callback(error, file);
         });
