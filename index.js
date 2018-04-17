@@ -3,13 +3,10 @@
 // ------------------------
 
 // through2 is a thin wrapper around node transform streams
-const _ = require('lodash');
-const gutil = require('gulp-util');
 const through = require('through2');
 const accessSniff = require('access-sniff');
-const StringDecoder = require('string_decoder').StringDecoder
-
-const PluginError = gutil.PluginError;
+const StringDecoder = require('string_decoder').StringDecoder;
+const PluginError = require('plugin-error');
 
 // Consts
 const PLUGIN_NAME = 'gulp-accessibility';
@@ -21,7 +18,7 @@ var accessSniffPlugin = function(options) {
   return through.obj(function(file, enc, callback) {
 
     if (file.isNull()) {
-      cb(null, file);
+      callback(null, file);
     }
 
     if (file.isStream()) {
@@ -47,7 +44,7 @@ var accessSniffPlugin = function(options) {
 
   });
 
-}
+};
 
 accessSniffPlugin.report = function(options) {
   const gulpOptions = options ? options : {};
@@ -56,7 +53,7 @@ accessSniffPlugin.report = function(options) {
   return through.obj(function(file, enc, callback) {
 
     if (file.isNull()) {
-      cb(null, file);
+      callback(null, file);
     }
 
     if (file.isStream()) {
